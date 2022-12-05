@@ -1,0 +1,216 @@
+-- MySQL dump 10.13  Distrib 8.0.30, for Linux (x86_64)
+--
+-- Host: localhost    Database: DB
+-- ------------------------------------------------------
+-- Server version	8.0.30
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `apiApp_clickdata`
+--
+
+DROP TABLE IF EXISTS `apiApp_clickdata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_clickdata` (
+  `article_id` int unsigned NOT NULL,
+  `click_count` int unsigned NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`article_id`),
+  CONSTRAINT `apiApp_clickdata_chk_1` CHECK ((`article_id` >= 0)),
+  CONSTRAINT `apiApp_clickdata_chk_2` CHECK ((`click_count` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_clickdata`
+--
+
+LOCK TABLES `apiApp_clickdata` WRITE;
+/*!40000 ALTER TABLE `apiApp_clickdata` DISABLE KEYS */;
+INSERT INTO `apiApp_clickdata` VALUES (1,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(2,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(3,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(4,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(5,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(6,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(7,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(8,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(9,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(10,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000');
+/*!40000 ALTER TABLE `apiApp_clickdata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_crawledarticle`
+--
+
+DROP TABLE IF EXISTS `apiApp_crawledarticle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_crawledarticle` (
+  `article_id` int unsigned NOT NULL,
+  `article_url` varchar(512) NOT NULL,
+  `image_url` varchar(512) NOT NULL,
+  `title` varchar(512) NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`article_id`),
+  UNIQUE KEY `article_url` (`article_url`),
+  CONSTRAINT `apiApp_crawledarticle_chk_1` CHECK ((`article_id` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_crawledarticle`
+--
+
+LOCK TABLES `apiApp_crawledarticle` WRITE;
+/*!40000 ALTER TABLE `apiApp_crawledarticle` DISABLE KEYS */;
+INSERT INTO `apiApp_crawledarticle` VALUES (1,'http://150.95.32.231/articles/h1.html','http://150.95.32.231/test.png','Title1','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(2,'http://150.95.32.231/articles/h2.html','http://150.95.32.231/test.png','Title2','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(3,'http://150.95.32.231/articles/h3.html','http://150.95.32.231/test.png','Title3','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(4,'http://150.95.32.231/articles/h4.html','http://150.95.32.231/test.png','Title4','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(5,'http://150.95.32.231/articles/h5.html','http://150.95.32.231/test.png','Title5','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(6,'http://150.95.32.231/articles/h6.html','http://150.95.32.231/test.png','Title6','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(7,'http://150.95.32.231/articles/h7.html','http://150.95.32.231/test.png','Title7','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(8,'http://150.95.32.231/articles/h8.html','http://150.95.32.231/test.png','Title8','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(9,'http://150.95.32.231/articles/h9.html','http://150.95.32.231/test.png','Title9','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(10,'http://150.95.32.231/articles/h10.html','http://150.95.32.231/test.png','Title10','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000');
+/*!40000 ALTER TABLE `apiApp_crawledarticle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_html`
+--
+
+DROP TABLE IF EXISTS `apiApp_html`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_html` (
+  `html` varchar(512) NOT NULL,
+  `css` varchar(512) NOT NULL,
+  PRIMARY KEY (`html`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_html`
+--
+
+LOCK TABLES `apiApp_html` WRITE;
+/*!40000 ALTER TABLE `apiApp_html` DISABLE KEYS */;
+/*!40000 ALTER TABLE `apiApp_html` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_pvdata`
+--
+
+DROP TABLE IF EXISTS `apiApp_pvdata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_pvdata` (
+  `article_id` int unsigned NOT NULL,
+  `pv_count` int unsigned NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`article_id`),
+  CONSTRAINT `apiApp_pvdata_chk_1` CHECK ((`article_id` >= 0)),
+  CONSTRAINT `apiApp_pvdata_chk_2` CHECK ((`pv_count` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_pvdata`
+--
+
+LOCK TABLES `apiApp_pvdata` WRITE;
+/*!40000 ALTER TABLE `apiApp_pvdata` DISABLE KEYS */;
+INSERT INTO `apiApp_pvdata` VALUES (1,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(2,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(3,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(4,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(5,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(6,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(7,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(8,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(9,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(10,0,'2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000');
+/*!40000 ALTER TABLE `apiApp_pvdata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_recommend`
+--
+
+DROP TABLE IF EXISTS `apiApp_recommend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_recommend` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `code` varchar(100) NOT NULL,
+  `article` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_recommend`
+--
+
+LOCK TABLES `apiApp_recommend` WRITE;
+/*!40000 ALTER TABLE `apiApp_recommend` DISABLE KEYS */;
+/*!40000 ALTER TABLE `apiApp_recommend` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_recommendrelation`
+--
+
+DROP TABLE IF EXISTS `apiApp_recommendrelation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_recommendrelation` (
+  `relation_id` int unsigned NOT NULL,
+  `originalArticle_id` int unsigned NOT NULL,
+  `recommendArticle_id` int unsigned NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`relation_id`),
+  CONSTRAINT `apiApp_recommendrelation_chk_1` CHECK ((`relation_id` >= 0)),
+  CONSTRAINT `apiApp_recommendrelation_chk_2` CHECK ((`originalArticle_id` >= 0)),
+  CONSTRAINT `apiApp_recommendrelation_chk_3` CHECK ((`recommendArticle_id` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_recommendrelation`
+--
+
+LOCK TABLES `apiApp_recommendrelation` WRITE;
+/*!40000 ALTER TABLE `apiApp_recommendrelation` DISABLE KEYS */;
+INSERT INTO `apiApp_recommendrelation` VALUES (1,1,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(2,1,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(3,1,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(4,1,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(5,1,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(6,2,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(7,2,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(8,2,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(9,2,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(10,2,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(11,3,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(12,3,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(13,3,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(14,3,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(15,3,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(16,4,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(17,4,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(18,4,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(19,4,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(20,4,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(21,5,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(22,5,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(23,5,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(24,5,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(25,5,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(26,6,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(27,6,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(28,6,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(29,6,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(30,6,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(31,7,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(32,7,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(33,7,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(34,7,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(35,7,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(36,8,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(37,8,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(38,8,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(39,8,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(40,8,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(41,9,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(42,9,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(43,9,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(44,9,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(45,9,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(46,10,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(47,10,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(48,10,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(49,10,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(50,10,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000');
+/*!40000 ALTER TABLE `apiApp_recommendrelation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_migrations` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'apiApp','0001_initial','2022-08-31 07:27:02.080375'),(2,'apiApp','0002_initial','2022-08-31 07:27:02.327620');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-09-01  1:45:50

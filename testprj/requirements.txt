@@ -1,0 +1,7 @@
+Django
+mysqlclient
+djangorestframework
+django-filter
+django-cors-headers
+slackweb
+schedule

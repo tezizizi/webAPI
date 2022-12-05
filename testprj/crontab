@@ -1,0 +1,2 @@
+* 10 * * * /usr/local/bin/python3 /code/manage.py notify
+
