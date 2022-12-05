@@ -1,0 +1,445 @@
+-- MySQL dump 10.13  Distrib 8.0.30, for Linux (x86_64)
+--
+-- Host: localhost    Database: DB
+-- ------------------------------------------------------
+-- Server version	8.0.30
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `apiApp_clickdata`
+--
+
+DROP TABLE IF EXISTS `apiApp_clickdata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_clickdata` (
+  `artile_id` int unsigned NOT NULL,
+  `click_count` int unsigned NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`artile_id`),
+  CONSTRAINT `apiApp_clickdata_chk_1` CHECK ((`artile_id` >= 0)),
+  CONSTRAINT `apiApp_clickdata_chk_2` CHECK ((`click_count` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_clickdata`
+--
+
+LOCK TABLES `apiApp_clickdata` WRITE;
+/*!40000 ALTER TABLE `apiApp_clickdata` DISABLE KEYS */;
+/*!40000 ALTER TABLE `apiApp_clickdata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_crawledarticle`
+--
+
+DROP TABLE IF EXISTS `apiApp_crawledarticle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_crawledarticle` (
+  `article_id` int unsigned NOT NULL,
+  `article_url` varchar(512) NOT NULL,
+  `image_url` varchar(512) NOT NULL,
+  `title` varchar(512) NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`article_id`),
+  UNIQUE KEY `apiApp_crawedarticle_article_url_4e594ac5_uniq` (`article_url`),
+  CONSTRAINT `apiApp_crawledarticle_chk_1` CHECK ((`article_id` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_crawledarticle`
+--
+
+LOCK TABLES `apiApp_crawledarticle` WRITE;
+/*!40000 ALTER TABLE `apiApp_crawledarticle` DISABLE KEYS */;
+INSERT INTO `apiApp_crawledarticle` VALUES (1,'localhost/test-rw/article/1.html','localhost:8080/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(2,'localhost/test-rw/article/2.html','localhost:8080/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(3,'localhost/test-rw/article/3.html','localhost:8081/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(4,'localhost/test-rw/article/4.html','localhost:8082/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(5,'localhost/test-rw/article/5.html','localhost:8083/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(6,'localhost/test-rw/article/6.html','localhost:8084/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(7,'localhost/test-rw/article/7.html','localhost:8085/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(8,'localhost/test-rw/article/8.html','localhost:8086/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(9,'localhost/test-rw/article/9.html','localhost:8087/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000'),(10,'localhost/test-rw/article/10.html','localhost:8088/test.png','testTitle','2022-08-25 16:46:00.000000','2022-08-25 16:46:00.000000');
+/*!40000 ALTER TABLE `apiApp_crawledarticle` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_pvdata`
+--
+
+DROP TABLE IF EXISTS `apiApp_pvdata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_pvdata` (
+  `artile_id` int unsigned NOT NULL,
+  `pv_count` int unsigned NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`artile_id`),
+  CONSTRAINT `apiApp_pvdata_chk_1` CHECK ((`artile_id` >= 0)),
+  CONSTRAINT `apiApp_pvdata_pv_count_762ffcbd_check` CHECK ((`pv_count` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_pvdata`
+--
+
+LOCK TABLES `apiApp_pvdata` WRITE;
+/*!40000 ALTER TABLE `apiApp_pvdata` DISABLE KEYS */;
+/*!40000 ALTER TABLE `apiApp_pvdata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_recommend`
+--
+
+DROP TABLE IF EXISTS `apiApp_recommend`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_recommend` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `code` varchar(100) NOT NULL,
+  `article` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_recommend`
+--
+
+LOCK TABLES `apiApp_recommend` WRITE;
+/*!40000 ALTER TABLE `apiApp_recommend` DISABLE KEYS */;
+/*!40000 ALTER TABLE `apiApp_recommend` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apiApp_recommendrelation`
+--
+
+DROP TABLE IF EXISTS `apiApp_recommendrelation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `apiApp_recommendrelation` (
+  `relation_id` int unsigned NOT NULL,
+  `originalArticle_id` int unsigned NOT NULL,
+  `recommendArticle_id` int unsigned NOT NULL,
+  `register_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`relation_id`),
+  CONSTRAINT `apiApp_recommendrelation_chk_1` CHECK ((`relation_id` >= 0)),
+  CONSTRAINT `apiApp_recommendrelation_originalArticle_id_b612e19b_check` CHECK ((`originalArticle_id` >= 0)),
+  CONSTRAINT `apiApp_recommendrelation_recommendArticle_id_25fa3016_check` CHECK ((`recommendArticle_id` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apiApp_recommendrelation`
+--
+
+LOCK TABLES `apiApp_recommendrelation` WRITE;
+/*!40000 ALTER TABLE `apiApp_recommendrelation` DISABLE KEYS */;
+INSERT INTO `apiApp_recommendrelation` VALUES (1,1,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(2,1,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(3,1,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(4,1,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(5,1,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(6,2,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(7,2,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(8,2,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(9,2,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(10,2,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(11,3,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(12,3,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(13,3,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(14,3,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(15,3,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(16,4,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(17,4,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(18,4,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(19,4,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(20,4,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(21,5,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(22,5,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(23,5,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(24,5,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(25,5,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(26,6,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(27,6,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(28,6,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(29,6,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(30,6,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(31,7,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(32,7,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(33,7,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(34,7,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(35,7,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(36,8,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(37,8,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(38,8,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(39,8,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(40,8,10,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(41,9,1,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(42,9,2,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(43,9,3,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(44,9,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(45,9,5,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(46,10,6,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(47,10,7,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(48,10,8,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(49,10,9,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000'),(50,10,4,'2022-08-25 17:20:00.000000','2022-08-25 17:20:00.000000');
+/*!40000 ALTER TABLE `apiApp_recommendrelation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `group_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `content_type_id` int NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add user',4,'add_user'),(14,'Can change user',4,'change_user'),(15,'Can delete user',4,'delete_user'),(16,'Can view user',4,'view_user'),(17,'Can add content type',5,'add_contenttype'),(18,'Can change content type',5,'change_contenttype'),(19,'Can delete content type',5,'delete_contenttype'),(20,'Can view content type',5,'view_contenttype'),(21,'Can add session',6,'add_session'),(22,'Can change session',6,'change_session'),(23,'Can delete session',6,'delete_session'),(24,'Can view session',6,'view_session'),(25,'Can add recommend',7,'add_recommend'),(26,'Can change recommend',7,'change_recommend'),(27,'Can delete recommend',7,'delete_recommend'),(28,'Can view recommend',7,'view_recommend'),(29,'Can add click_data',8,'add_click_data'),(30,'Can change click_data',8,'change_click_data'),(31,'Can delete click_data',8,'delete_click_data'),(32,'Can view click_data',8,'view_click_data'),(33,'Can add crawed article',9,'add_crawedarticle'),(34,'Can change crawed article',9,'change_crawedarticle'),(35,'Can delete crawed article',9,'delete_crawedarticle'),(36,'Can view crawed article',9,'view_crawedarticle'),(37,'Can add pv_data',10,'add_pv_data'),(38,'Can change pv_data',10,'change_pv_data'),(39,'Can delete pv_data',10,'delete_pv_data'),(40,'Can view pv_data',10,'view_pv_data'),(41,'Can add recommend relation',11,'add_recommendrelation'),(42,'Can change recommend relation',11,'change_recommendrelation'),(43,'Can delete recommend relation',11,'delete_recommendrelation'),(44,'Can view recommend relation',11,'view_recommendrelation'),(45,'Can add click data',10,'add_clickdata'),(46,'Can change click data',10,'change_clickdata'),(47,'Can delete click data',10,'delete_clickdata'),(48,'Can view click data',10,'view_clickdata'),(49,'Can add pv data',8,'add_pvdata'),(50,'Can change pv data',8,'change_pvdata'),(51,'Can delete pv data',8,'delete_pvdata'),(52,'Can view pv data',8,'view_pvdata'),(53,'Can add crawled article',9,'add_crawledarticle'),(54,'Can change crawled article',9,'change_crawledarticle'),(55,'Can delete crawled article',9,'delete_crawledarticle'),(56,'Can view crawled article',9,'view_crawledarticle');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_groups` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_admin_log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_content_type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(10,'apiApp','clickdata'),(9,'apiApp','crawledarticle'),(8,'apiApp','pvdata'),(7,'apiApp','recommend'),(11,'apiApp','recommendrelation'),(3,'auth','group'),(2,'auth','permission'),(4,'auth','user'),(5,'contenttypes','contenttype'),(6,'sessions','session');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_migrations` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2022-08-28 16:00:49.330489'),(2,'auth','0001_initial','2022-08-28 16:00:51.972839'),(3,'admin','0001_initial','2022-08-28 16:00:52.704262'),(4,'admin','0002_logentry_remove_auto_add','2022-08-28 16:00:52.723481'),(5,'admin','0003_logentry_add_action_flag_choices','2022-08-28 16:00:52.744323'),(6,'apiApp','0001_initial','2022-08-28 16:00:52.841151'),(7,'apiApp','0002_click_data_crawedarticle_pv_data_recommendrelation','2022-08-28 16:00:53.191805'),(8,'contenttypes','0002_remove_content_type_name','2022-08-28 16:00:53.471971'),(9,'auth','0002_alter_permission_name_max_length','2022-08-28 16:00:53.739316'),(10,'auth','0003_alter_user_email_max_length','2022-08-28 16:00:53.948088'),(11,'auth','0004_alter_user_username_opts','2022-08-28 16:00:53.968359'),(12,'auth','0005_alter_user_last_login_null','2022-08-28 16:00:54.158255'),(13,'auth','0006_require_contenttypes_0002','2022-08-28 16:00:54.174228'),(14,'auth','0007_alter_validators_add_error_messages','2022-08-28 16:00:54.194040'),(15,'auth','0008_alter_user_username_max_length','2022-08-28 16:00:54.427470'),(16,'auth','0009_alter_user_last_name_max_length','2022-08-28 16:00:54.634831'),(17,'auth','0010_alter_group_name_max_length','2022-08-28 16:00:54.844067'),(18,'auth','0011_update_proxy_permissions','2022-08-28 16:00:54.865893'),(19,'auth','0012_alter_user_first_name_max_length','2022-08-28 16:00:55.116524'),(20,'sessions','0001_initial','2022-08-28 16:00:55.270717'),(21,'apiApp','0003_alter_crawedarticle_article_url','2022-08-28 16:04:51.428623'),(22,'apiApp','0004_rename_pv_data_clickdata_rename_click_data_pvdata','2022-08-28 16:24:56.220913'),(23,'apiApp','0005_rename_recommandarticle_id_recommendrelation_recommendarticle_id','2022-08-28 16:40:05.478513'),(24,'apiApp','0006_rename_crawedarticle_crawledarticle','2022-08-28 16:44:04.925149'),(25,'apiApp','0007_rename_click_count_pvdata_pv_count','2022-08-28 16:59:03.175392'),(26,'apiApp','0008_rename_oroginalarticle_id_recommendrelation_originalarticle_id','2022-08-29 00:49:02.993826');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-08-30  3:51:49
